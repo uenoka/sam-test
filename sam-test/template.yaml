@@ -116,3 +116,9 @@ Outputs:
   StockTradingStateMachineRoleArn:
     Description: "IAM Role created for Stock Trading State machine based on the specified SAM Policy Templates"
     Value: !GetAtt StockTradingStateMachineRole.Arn
+  StockTradingStateMachineTestArn:
+    Description: "Stock Trading test State machine ARN"
+    Value: !Ref StockTradingStateMachineTest
+  StockTradingStateMachineTestRoleArn:
+    Description: "IAM Role created for Stock Trading State machine based on the specified SAM Policy Templates"
+    Value: !GetAtt StockTradingStateMachineRole.Arn
