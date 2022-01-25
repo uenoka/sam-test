@@ -4,7 +4,7 @@
     "States": {
         "Check Stock Value": {
             "Type": "Task",
-            "Resource": "${StockCheckerFunctionArn}",
+            "Resource": "${StockTradingStateMachineArn}",
             "Retry": [
                 {
                     "ErrorEquals": [
