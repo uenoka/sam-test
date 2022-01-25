@@ -4,7 +4,7 @@
     "States": {
         "Check Stock Value": {
             "Type": "Task",
-            "Resource": "${StockCheckerFunctionArn}",
+            "Resource": "arn:aws:states:::states:startExecution.sync",
             "Retry": [
                 {
                     "ErrorEquals": [
@@ -15,6 +15,12 @@
                     "BackoffRate": 1.5
                 }
             ],
+            "Parameters":{
+                "Input":{
+                        "params": []
+                 },
+                "StateMachineArn":"${StockTradingStateMachineArn}"
+            },
             "Next": "Buy or Sell?"
         },
         "Buy or Sell?": {

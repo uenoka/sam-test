@@ -34,12 +34,7 @@ Resources:
         - DynamoDBWritePolicy:
             TableName: !Ref TransactionTable
         - StepFunctionsExecutionPolicy:
-            Action: 
-            - "states:StartExecution"
-            Resource: 
-              Fn::Sub: 
-              - "arn:${AWS::Partition}:states:${AWS::Region}:${AWS::AccountId}:stateMachine:StockTradingStateMachine"
-            StateMachineName: StockTradingStateMachine
+            StateMachineName: !GetAtt StockTradingStateMachine.Name
 
   StockTradingStateMachine:
     Type: AWS::Serverless::StateMachine # More info about State Machine Resource: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
